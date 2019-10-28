@@ -11,4 +11,4 @@ def to_binary_func(n):
     return to_binary_func(ost) + str(res)
 
 
-print(to_binary_func(5))
+print(to_binary_func(int(input("Введите число:"))))
