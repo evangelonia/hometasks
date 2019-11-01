@@ -13,7 +13,7 @@ def read_in_list(filename):
         raise FileNotFoundError
         
         
- def filter_parent(pid):
+ def filter_parent(pid=0):
     list_of_parent = []
     for p in menu:
         if p.get("parent") == str(pid):
@@ -23,7 +23,13 @@ def read_in_list(filename):
 def print_li(dict):
     pr_li = f"""<li>{dict["name"]}"""
     parent_id = filter_parent(dict["id"])
-    for i in parent_id:
+    if len(list_of_parent)>0:
+        pr_li += "<ul>"
+        for i in parent_id:
+            pr_li += print_li(i)
+        pr_li += "</ul>"
+    pr_li += "</li>"
+    return pr_li
 
 if __name__ == "__main__":
     read_in_list("exmpl.csv")
