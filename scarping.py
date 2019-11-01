@@ -11,6 +11,14 @@ def read_in_list(filename):
                 menu.append(dict(line))
     else:
         raise FileNotFoundError
+        
+        
+ def filter_parent(pid):
+    list_of_parent = []
+    for p in menu:
+        if p.get("parent") == str(pid):
+            list_of_parent.append(p)
+    return list_of_parent
 
 if __name__ == "__main__":
     read_in_list("exmpl.csv")
