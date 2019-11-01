@@ -22,7 +22,8 @@ def read_in_list(filename):
 
 def print_li(dict):
     pr_li = f"""<li>{dict["name"]}"""
-    return pr_li
+    parent_id = filter_parent(dict["id"])
+    for i in parent_id:
 
 if __name__ == "__main__":
     read_in_list("exmpl.csv")
