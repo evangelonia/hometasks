@@ -20,6 +20,10 @@ def read_in_list(filename):
             list_of_parent.append(p)
     return list_of_parent
 
+def print_li(dict):
+    pr_li = f"""<li>{dict["name"]}"""
+    return pr_li
+
 if __name__ == "__main__":
     read_in_list("exmpl.csv")
     print(menu)
