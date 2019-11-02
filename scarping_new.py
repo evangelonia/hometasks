@@ -15,20 +15,18 @@ def read_in_list(filename):
 def filter_parent(pid=0):
     list_of_parent = []
     for p in menu:
-        if p.get(pid):
+        if p.get('pid') == str(pid):
             list_of_parent.append(p)
     return list_of_parent
 
-
 def print_li(dict1, lvl=0):
-    pr_li = f"""\t<li>{dict1["name"]}"""
-    pr_li += f"""\t<li><a>{dict1["lnk"]}"""
-    pr_li += "</a>\n"
+    pr_li = ""
+    pr_li += f"""\t<li><a href="{dict1["lnk"]}"> {dict1['name']} </a>"""
     pr_li += print_ul(dict1['id'], lvl)
     pr_li += "</li>\n"
-    pr_li += "</li>\n"
-
     return pr_li
+
+
 
 
 def print_ul(pid, lvl):
@@ -46,7 +44,6 @@ if __name__ == "__main__":
 
     read_in_list("leftmenu.csv")
     print(menu)
-    # print(filter_parent(4))
 
     mnu = print_ul(0, 0)
     print(mnu)
